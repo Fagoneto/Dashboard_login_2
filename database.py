@@ -1,17 +1,29 @@
 import psycopg2
 import bcrypt
 from psycopg2 import sql
+import os
 
 # Função para conectar ao banco de dados
+# def conectar():
+#     conn = psycopg2.connect(
+#         host='ep-plain-rain-a8zx9490-pooler.eastus2.azure.neon.tech',
+#         database='db_test_2',
+#         user='db_test_2_owner',
+#         password='npg_WmZ6ax9QnRcI',
+#         port='5432'
+#     )
+#     return conn
+
 def conectar():
     conn = psycopg2.connect(
-        PGHOST='ep-plain-rain-a8zx9490-pooler.eastus2.azure.neon.tech'
-        PGDATABASE='db_test_2'
-        PGUSER='db_test_2_owner'
-        PGPASSWORD='npg_WmZ6ax9QnRcI'
-        PGPORT='5432'
+        host=os.getenv("PGHOST"),
+        database=os.getenv("PGDATABASE"),
+        user=os.getenv("PGUSER"),
+        password=os.getenv("PGPASSWORD"),
+        port=os.getenv("PGPORT")
     )
     return conn
+
 
 # Função para criar a tabela de usuários
 def criar_tabela_usuario():
