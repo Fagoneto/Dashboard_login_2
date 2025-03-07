@@ -5,11 +5,11 @@ from psycopg2 import sql
 # Função para conectar ao banco de dados
 def conectar():
     conn = psycopg2.connect(
-        host="seu_host_neon",
-        database="seu_banco",
-        user="seu_usuario",
-        password="sua_senha",
-        port="5432"
+        PGHOST='ep-plain-rain-a8zx9490-pooler.eastus2.azure.neon.tech'
+        PGDATABASE='db_test_2'
+        PGUSER='db_test_2_owner'
+        PGPASSWORD='npg_WmZ6ax9QnRcI'
+        PGPORT='5432'
     )
     return conn
 
